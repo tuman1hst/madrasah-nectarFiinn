@@ -12,24 +12,76 @@ export type Database = {
   __InternalSupabase: {
     PostgrestVersion: "13.0.4"
   }
-  public: {
-    Tables: {
-      [_ in never]: never
-    }
-    Views: {
-      [_ in never]: never
-    }
-    Functions: {
-      [_ in never]: never
-    }
-    Enums: {
-      [_ in never]: never
-    }
-    CompositeTypes: {
-      [_ in never]: never
+    public: {
+      Tables: {
+        invoices: {
+          Row: {
+            id: string
+            total: number
+            status: string | null
+            created_at: string | null
+          }
+          Insert: {
+            id?: string
+            total: number
+            status?: string | null
+            created_at?: string | null
+          }
+          Update: {
+            id?: string
+            total?: number
+            status?: string | null
+            created_at?: string | null
+          }
+          Relationships: []
+        }
+        payments: {
+          Row: {
+            id: string
+            invoice_id: string | null
+            amount: number
+            status: string | null
+            created_at: string | null
+          }
+          Insert: {
+            id?: string
+            invoice_id?: string | null
+            amount: number
+            status?: string | null
+            created_at?: string | null
+          }
+          Update: {
+            id?: string
+            invoice_id?: string | null
+            amount?: number
+            status?: string | null
+            created_at?: string | null
+          }
+          Relationships: [
+            {
+              foreignKeyName: "payments_invoice_id_fkey"
+              columns: ["invoice_id"]
+              referencedRelation: "invoices"
+              referencedColumns: ["id"]
+            }
+          ]
+        }
+        [_ in never]: never
+      }
+      Views: {
+        [_ in never]: never
+      }
+      Functions: {
+        [_ in never]: never
+      }
+      Enums: {
+        [_ in never]: never
+      }
+      CompositeTypes: {
+        [_ in never]: never
+      }
     }
   }
-}
 
 type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
 
