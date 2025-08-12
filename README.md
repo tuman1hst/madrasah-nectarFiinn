@@ -60,6 +60,13 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Available UI Components
+
+- **Dashboard**: halaman dasar dengan judul "Dashboard Madrasah Digital" dan tombol "Mulai Absensi". Dapat diakses di `/dashboard`.
+- **Absensi**: menampilkan daftar siswa dari Supabase. Dapat diakses di `/absensi`.
+- **Daftar Siswa**: daftar sederhana seluruh siswa, tersedia di `/students`.
+- **Login**: form autentikasi menggunakan Supabase auth pada `/login`.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/f042acfa-48ad-4d13-b7b7-90c40dcd7a1e) and click on Share -> Publish.
