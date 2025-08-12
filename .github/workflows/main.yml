@@ -16,6 +16,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install build globally
+        run: npm install -g build
       - run: npm install
       - run: npm run build
       - run: npm test
