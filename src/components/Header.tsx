@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { BookOpen, Users, GraduationCap, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -17,17 +18,23 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <Button variant="ghost" className="flex items-center space-x-2">
-              <GraduationCap className="w-4 h-4" />
-              <span>Akademik</span>
+            <Button asChild variant="ghost" className="flex items-center space-x-2">
+              <Link to="/akademik">
+                <GraduationCap className="w-4 h-4" />
+                <span>Akademik</span>
+              </Link>
             </Button>
-            <Button variant="ghost" className="flex items-center space-x-2">
-              <Users className="w-4 h-4" />
-              <span>Manajemen</span>
+            <Button asChild variant="ghost" className="flex items-center space-x-2">
+              <Link to="/manajemen">
+                <Users className="w-4 h-4" />
+                <span>Manajemen</span>
+              </Link>
             </Button>
-            <Button variant="ghost" className="flex items-center space-x-2">
-              <Settings className="w-4 h-4" />
-              <span>Admin</span>
+            <Button asChild variant="ghost" className="flex items-center space-x-2">
+              <Link to="/admin">
+                <Settings className="w-4 h-4" />
+                <span>Admin</span>
+              </Link>
             </Button>
           </nav>
 
